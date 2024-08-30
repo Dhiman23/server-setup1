@@ -1,0 +1,42 @@
+---
+- name: install jenkns
+  hosts: localhost
+  become: yes
+  become_user: root
+
+
+  tasks:
+  - name: update pakages
+    ansible.builtin.apt:
+      name: "*"
+      state: latest
+  - name: Downloading key
+    ansible.builtin.get_url:
+      url: https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+      dest: /usr/share/keyrings/jenkins-keyring.asc
+  - name: Adding repository into sources list
+    ansible.builtin.apt_repository:
+      repo: deb http://archive.canonical.com/ubuntu hardy partner
+      state: present
+  - name: Add specified repository into sources list using specified filename
+    ansible.builtin.apt_repository:
+      repo: deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/
+      state: present
+      filename: jenkins.list
+   - name: update pakages
+     ansible.builtin.apt:
+       name: "*"
+       state: latest
+   - name: install fontconfig
+     shell: apt install fontconfig -y
+   - name: install java
+     shell: apt install fontconfig openjdk-17-jre -y
+   - name: install jenkins 
+     apt:
+      name: jenkins
+      state: present
+   - name: start service
+     ansible.builtin.systemd:
+      state: started
+      name: jenkins
+      enabled: yes 

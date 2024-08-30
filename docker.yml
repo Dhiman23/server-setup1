@@ -1,0 +1,10 @@
+---
+- name: install docker
+  hosts: localhost
+  become: yes
+  become_user: root
+  tasks:
+  - name: update pakages
+    ansible.builtin.apt:
+      name: "*"
+      state: latest
