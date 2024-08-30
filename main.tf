@@ -24,7 +24,7 @@ resource "aws_instance" "jenkins-server" {
   instance_type   = "t3.medium"
   key_name        = "test"
   security_groups = [aws_security_group.web-sg-1.name]
-  user_data       = templatefile("./install_jenkins.sh", {})
+  user_data       = templatefile("./install_jenkins.sh",{})
 
   root_block_device {
     volume_size = 20
