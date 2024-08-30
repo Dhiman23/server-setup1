@@ -29,4 +29,4 @@ git clone https://github.com/Dhiman23/server-setup1.git
 cd server-setup1
 
 # Run the Ansible playbook
-sudo ansible-playbook -i localhost jenkins.yml
+ansible-playbook -i localhost jenkins.yml
