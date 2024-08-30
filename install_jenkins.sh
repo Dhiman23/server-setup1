@@ -17,7 +17,7 @@ sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install -y ansible git
 
 # Create Ansible directory and navigate into it
-sudo mkdir -p ~/Ansible && cd ~/Ansible
+mkdir -p ~/Ansible && cd ~/Ansible
 
 # Print the current directory
 pwd
