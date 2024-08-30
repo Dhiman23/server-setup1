@@ -17,16 +17,16 @@ sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install -y ansible git
 
 # Create Ansible directory and navigate into it
-mkdir -p ~/Ansible && cd ~/Ansible
+sudo mkdir -p ~/Ansible && cd ~/Ansible
 
 # Print the current directory
 pwd
 
 # Clone the server-setup repository
-git clone https://github.com/Dhiman23/server-setup.git
+git clone https://github.com/Dhiman23/server-setup1.git
 
 # Navigate into the cloned repository
-cd server-setup
+cd server-setup1
 
 # Run the Ansible playbook
 ansible-playbook -i localhost jenkins.yml
